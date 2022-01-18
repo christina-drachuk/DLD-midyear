@@ -1,4 +1,3 @@
-package chap14_learning;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
