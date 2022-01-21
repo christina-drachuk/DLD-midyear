@@ -3,11 +3,13 @@ import java.awt.FlowLayout;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
 
 public class AlertBox {
    public static void main(String[] args) {
@@ -15,24 +17,27 @@ public class AlertBox {
    }
 
    private static void createWindow() {    
-      JFrame frame = new JFrame("Death Code");
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      JFrame alertBox = new JFrame("Death Code");
+      alertBox.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-      createUI(frame);
-      frame.setSize(1000, 20000);      
-      frame.setLocationRelativeTo(null);  
-      frame.setVisible(true);
+      createUI(alertBox);
+      alertBox.setSize(1000, 20000);      
+      alertBox.setLocationRelativeTo(null);  
+      alertBox.setVisible(true);
    }
 
-   private static void createUI(final JFrame frame){  
+   private static void createUI(final JFrame frame){ 
       JPanel panel = new JPanel();
       LayoutManager layout = new FlowLayout();  
-      panel.setLayout(layout);       
-      JButton button = new JButton("How will you die?");
+      panel.setLayout(layout);  
+      JButton button = new JButton("enter later");
+      button.setBorder(new LineBorder(Color.pink,5));
+
       button.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(frame, "ur toew will be choppen off and fed to children around the world");
+            JOptionPane.showMessageDialog(frame, "hmmmm idk thats tricky");
+            
          }
       });
 
