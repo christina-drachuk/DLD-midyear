@@ -1,1 +1,14 @@
-TESTPUSH1 - NATE
+TESTPUSH1 - NATE 
+
+            JOptionPane.showMessageDialog(frame, "Do you think this is a cool way to go?");
+            JButton yes1 = new JButton("YES!!");
+            yes1.setBorder(new LineBorder(Color.pink,10));
+            JButton no1 = new JButton("NOOOO!!");
+            no1.setBorder(new LineBorder(Color.pink,10));
+            panel.add(yes1);
+            panel.add(no1);       
+
+
+            Pane root = new Pane();
+            btn.setLayoutX(250);
+            btn.setLayoutY(220);
