@@ -37,11 +37,13 @@ public class AlertBox {
          @Override
          public void actionPerformed(ActionEvent e) {
             JOptionPane.showMessageDialog(frame, "hmmmm idk thats tricky");
-            
+                 
          }
       });
 
       panel.add(button);
-      frame.getContentPane().add(panel, BorderLayout.CENTER);    
+      frame.getContentPane().add(panel, BorderLayout.CENTER);
+      
+      
    }  
 }
