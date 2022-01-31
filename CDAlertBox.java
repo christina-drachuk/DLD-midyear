@@ -24,6 +24,8 @@ public class CDAlertBox extends Application{
         StackPane layout = new StackPane();
         layout.getChildren().add(button);
 
+        
+
         Scene scene = new Scene(layout, 400, 300);
         arg0.setScene(scene);
         arg0.show();
