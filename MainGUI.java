@@ -16,31 +16,25 @@ public class MainGUI extends Application {
     }
     @Override
     public void start(Stage arg0) throws Exception {
-        arg0.setTitle("This is the title of the window we can change it later");
+        arg0.setTitle("ARGO");
         StackPane layout = new StackPane();
-
-        Button door1 = new Button("Click here! 1");
-        door1.setPrefSize(250, 400);
-        door1.setTranslateX(-450);
-        layout.getChildren().add(door1);
-
-        Button door2 = new Button("Click here! 2");
-        door2.setPrefSize(250, 400);
-        door2.setTranslateX(-150);
-        layout.getChildren().add(door2);
-
-        Button door3 = new Button("Click here! 3");
-        door3.setPrefSize(250, 400);
-        door3.setTranslateX(150);
-        layout.getChildren().add(door3);
-
-        Button door4 = new Button("Click here! 4");
-        door4.setPrefSize(250, 400);
-        door4.setTranslateX(450);
-        layout.getChildren().add(door4);
+        
+        Button door1 = makeDoors(layout, 250, 400, -450, "Click here 1!");
+        Button door2 = makeDoors(layout, 250, 400, -150, "Click here 2!");
+        Button door3 = makeDoors(layout, 250, 400, 150, "Click here 3!");
+        Button door4 = makeDoors(layout, 250, 400, 450, "Click here 4!");
 
         Scene scene = new Scene(layout, 1250, 700);
         arg0.setScene(scene);
         arg0.show();
     }
+
+    public Button makeDoors(StackPane layout, int width, int length, int translate, String message){
+        Button door = new Button(message);
+        door.setPrefSize(width, length);
+        door.setTranslateX(translate);
+        layout.getChildren().add(door);
+        return door;
+        }
+
 }
