@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 // import javafx.event.ActionEvent;
 // import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ public class MainGUI extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
     @Override
     public void start(Stage arg0) throws Exception {
         arg0.setTitle("ARGO");
@@ -23,6 +25,7 @@ public class MainGUI extends Application {
         Button door2 = makeDoors(layout, 250, 400, -150, "Click here 2!");
         Button door3 = makeDoors(layout, 250, 400, 150, "Click here 3!");
         Button door4 = makeDoors(layout, 250, 400, 450, "Click here 4!");
+        door4.setOnAction(new EventHandler() {
 
         Scene scene = new Scene(layout, 1250, 700);
         arg0.setScene(scene);
@@ -36,5 +39,12 @@ public class MainGUI extends Application {
         layout.getChildren().add(door);
         return door;
         }
+
+        
+        @Override
+        public void handle(ActionEvent actionEvent) {
+                
+        }
+        
 
 }
