@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.geometry.Pos;
+import javafx.event.ActionEvent;
 // import javafx.event.ActionEvent;
 // import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -20,12 +21,16 @@ import javafx.*;
 
 
 public class MainGUI extends Application {
+private Stage stage;
+
     public static void main(String[] args) {
         launch(args);
     }
+    
     @Override
     public void start(Stage arg0) throws Exception {
-        arg0.setTitle("ARGO");
+        stage = arg0;
+        arg0.setTitle("ARGO"); //TODO rename
         StackPane layout = new StackPane();
         Text text1 = new Text("\nChoose a door to enter through!");
         text1.setFont(Font.font ("Courier New", FontWeight.BOLD, 35));
@@ -56,6 +61,12 @@ public class MainGUI extends Application {
         VBox layout4 = new VBox();
         VBox layout5 = new VBox();
 
+        door1.setOnAction( e -> {
+            System.out.println("clicked!");
+
+            
+            stage.setScene(scene);
+        }
         Label label1 = new Label("This is the First Scene");
         Label label2 = new Label("This is the First Scene");
         Label label3 = new Label("So you have decided to enter through this door thought we told you not to...\n well there is no going back now so lets test your worthiness");
@@ -88,7 +99,18 @@ public class MainGUI extends Application {
         door.setPrefSize(width, length);
         door.setTranslateX(translate);
         layout.getChildren().add(door);
+
+       
+        
+        );
         return door;
         }
+
+        
+        @Override 
+        public void handle(ActionEvent actionEvent) {
+                
+        }
+        
 
 }
