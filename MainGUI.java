@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 // import javafx.event.ActionEvent;
 // import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -21,6 +22,7 @@ private Scene scene;
     public static void main(String[] args) {
         launch(args);
     }
+    
     @Override
     public void start(Stage arg0) throws Exception {
         stage = arg0;
@@ -111,5 +113,12 @@ private Scene scene;
         //);
         return door;
         }
+
+        
+        @Override
+        public void handle(ActionEvent actionEvent) {
+                
+        }
+        
 
 }
