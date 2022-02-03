@@ -16,6 +16,7 @@ import javafx.*;
 
 public class MainGUI extends Application {
 private Stage stage;
+private Scene scene;
 
     public static void main(String[] args) {
         launch(args);
@@ -49,29 +50,46 @@ private Stage stage;
 
         door1.setOnAction( e -> {
             System.out.println("clicked!");
+            stage.setScene(Scene1.getScene1());
+            }
+        );
 
-            
-            stage.setScene(scene);
-        }
-        Label label1 = new Label("This is the First Scene");
-        Label label2 = new Label("This is the First Scene");
-        Label label3 = new Label("This is the First Scene");
-        Label label4 = new Label("This is the First Scene");
+        door2.setOnAction( e -> {
+            System.out.println("clicked!");
+            stage.setScene(Scene2.getScene2());
+            }
+        );
+
+        door3.setOnAction( e -> {
+            System.out.println("clicked!");
+            stage.setScene(Scene3.getScene3());
+            }
+        );
+
+        door4.setOnAction( e -> {
+            System.out.println("clicked!");
+            stage.setScene(Scene4.getScene3());
+            }
+        );
+        
+        // Label label2 = new Label("This is the First Scene");
+        // Label label3 = new Label("This is the First Scene");
+        // Label label4 = new Label("This is the First Scene");
 
         
-        Scene scene1 = new Scene(layout2, 1300, 700);
-        door1.setOnAction(e -> arg0.setScene(scene1));
+        // Scene scene1 = new Scene(layout2, 1300, 700);
+        // door1.setOnAction(e -> arg0.setScene(scene1));
 
-        Scene scene2 = new Scene(layout3, 1300, 700);
-        door2.setOnAction(e -> arg0.setScene(scene2));
+        // Scene scene2 = new Scene(layout3, 1300, 700);
+        // door2.setOnAction(e -> arg0.setScene(scene2));
 
-        Scene scene3 = new Scene(layout4, 1300, 700);
-        door3.setOnAction(e -> arg0.setScene(scene3));
+        // Scene scene3 = new Scene(layout4, 1300, 700);
+        // door3.setOnAction(e -> arg0.setScene(scene3));
 
-        Scene scene4 = new Scene(layout5, 1300, 700);
-        door4.setOnAction(e -> arg0.setScene(scene4));
+        // Scene scene4 = new Scene(layout5, 1300, 700);
+        // door4.setOnAction(e -> arg0.setScene(scene4));
 
-        layout2.getChildren().addAll(label1);
+        // layout2.getChildren().addAll(label1);
 
 
  
@@ -90,7 +108,7 @@ private Stage stage;
 
        
         
-        );
+        //);
         return door;
         }
 
