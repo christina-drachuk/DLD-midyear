@@ -13,12 +13,15 @@ import javafx.*;
 
 
 public class MainGUI extends Application {
+private Stage stage;
+
     public static void main(String[] args) {
         launch(args);
     }
     @Override
     public void start(Stage arg0) throws Exception {
-        arg0.setTitle("ARGO");
+        stage = arg0;
+        arg0.setTitle("ARGO"); //TODO rename
         StackPane layout = new StackPane();
         
         Button door1 = makeDoors(layout, 250, 400, -450, "Scary");
@@ -38,12 +41,12 @@ public class MainGUI extends Application {
         door4.setFont(font);
 
 
+        door1.setOnAction( e -> {
+            System.out.println("clicked!");
 
-
-
-
-
-
+            
+            stage.setScene(scene);
+        }
 
         Scene scene = new Scene(layout, 1250, 700);
         arg0.setScene(scene);
@@ -55,6 +58,10 @@ public class MainGUI extends Application {
         door.setPrefSize(width, length);
         door.setTranslateX(translate);
         layout.getChildren().add(door);
+
+       
+        
+        );
         return door;
         }
 
