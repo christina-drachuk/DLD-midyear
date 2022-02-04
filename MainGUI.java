@@ -32,6 +32,7 @@ private Scene scene;
     public void start(Stage arg0) throws Exception {
         stage = arg0;
         arg0.setTitle("ARGO"); //TODO rename
+
         StackPane layout = new StackPane();
         Text text1 = new Text("\nChoose a door to enter through!");
         text1.setFont(Font.font ("Courier New", FontWeight.BOLD, 35));
