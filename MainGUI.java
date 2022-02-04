@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
 // import javafx.event.ActionEvent;
 // import javafx.event.EventHandler;
@@ -9,8 +10,12 @@ import javafx.scene.control.Label;
 // import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.*;
 
@@ -27,7 +32,15 @@ private Scene scene;
     public void start(Stage arg0) throws Exception {
         stage = arg0;
         arg0.setTitle("ARGO"); //TODO rename
+
         StackPane layout = new StackPane();
+        Text text1 = new Text("\nChoose a door to enter through!");
+        text1.setFont(Font.font ("Courier New", FontWeight.BOLD, 35));
+        text1.setFill(Color.BLACK);
+        StackPane.setAlignment(text1, Pos.TOP_CENTER);
+        layout.getChildren().add(text1);
+
+
         
         Button door1 = makeDoors(layout, 250, 400, -450, "Scary");
         Button door2 = makeDoors(layout, 250, 400, -150, "Not scary at all");
@@ -56,6 +69,13 @@ private Scene scene;
             }
         );
 
+            
+            stage.setScene(scene);
+        
+        Label label1 = new Label("This is the First Scene");
+        Label label2 = new Label("This is the First Scene");
+        Label label3 = new Label("So you have decided to enter through this door thought we told you not to...\n well there is no going back now so lets test your worthiness");
+        Label label4 = new Label("This is the First Scene");
         door2.setOnAction( e -> {
             System.out.println("clicked!");
             stage.setScene(Scene2.getScene2());
@@ -115,7 +135,11 @@ private Scene scene;
         }
 
         
+<<<<<<< HEAD
         //@Override
+=======
+        // @Override 
+>>>>>>> b6d8dbad77e54b24fb32dc07ea7c348700b21e8f
         // public void handle(ActionEvent actionEvent) {
                 
         // }
