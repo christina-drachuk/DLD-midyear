@@ -7,7 +7,7 @@ public class Scene3 {
     public static Scene scene3 = new Scene(layout3, 1300, 700);
     public static Scene getScene3() {            
         
-        Label label3 = new Label("This is the thr Scene");
+        Label label3 = new Label("This is the third Scene");
         layout3.getChildren().addAll(label3);
         return scene3;
     }
