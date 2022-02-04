@@ -135,11 +135,7 @@ private Scene scene;
         }
 
         
-<<<<<<< HEAD
         //@Override
-=======
-        // @Override 
->>>>>>> b6d8dbad77e54b24fb32dc07ea7c348700b21e8f
         // public void handle(ActionEvent actionEvent) {
                 
         // }
