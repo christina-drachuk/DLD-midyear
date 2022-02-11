@@ -25,6 +25,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+
+import java.io.FileNotFoundException;
+
 import javafx.*;
 
 
@@ -73,17 +76,22 @@ private Scene scene;
 
         door1.setOnAction( e -> {
             System.out.println("clicked!");
-            stage.setScene(Scene1.getScene1());
+            try {
+                stage.setScene(Scene1.getScene1());
+            } catch (FileNotFoundException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
             }
         );
 
             
             stage.setScene(scene);
         
-        Label label1 = new Label("This is the First Scene");
-        Label label2 = new Label("This is the First Scene");
-        Label label3 = new Label("So you have decided to enter through this door thought we told you not to...\n well there is no going back now so lets test your worthiness");
-        Label label4 = new Label("This is the First Scene");
+        // Label label1 = new Label("This is the First Scene");
+        // Label label2 = new Label("This is the First Scene");
+        // Label label3 = new Label("So you have decided to enter through this door thought we told you not to...\n well there is no going back now so lets test your worthiness");
+        // Label label4 = new Label("This is the First Scene");
         door2.setOnAction( e -> {
             System.out.println("clicked!");
             stage.setScene(Scene2.getScene2());
@@ -159,7 +167,7 @@ private Scene scene;
         }
 
         
-        // @Override 
+        //@Override
         // public void handle(ActionEvent actionEvent) {
                 
         // }
