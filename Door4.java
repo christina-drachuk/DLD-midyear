@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.PickResult;
 // import javafx.scene.control.Button;
 // import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -78,14 +79,31 @@ public class Door4 extends Application {
 
 
         play(layout, cardNames);
+
+        compCards(layout, deckNum, cardNames);
         
         Button btn1 = makeButtons(layout, 100, 60, -500, 96, "Hit");
         Button btn2 = makeButtons(layout, 100, 60, 500, 96,"Hold");
+
+        btn1.setOnAction(e -> {
+            try {
+                giveNewCard(layout, cardNames);
+            } catch (FileNotFoundException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        });
+        
+        btn2.setOnAction(e -> {
+            
+        });
+        
 
 
         Scene scene = new Scene(layout, 1250, 700);
         arg0.setScene(scene);
         arg0.show();  
+        
         
         
     }
@@ -100,14 +118,13 @@ public class Door4 extends Application {
         }
 
     public Card[] shuffle(Card[] arr){
-        List<Card> list =Arrays.asList(arr);
+        List<Card> list = Arrays.asList(arr);
         Collections.shuffle(list);
         list.toArray(arr);        
         return arr;
     }
         
-        
-    public void compCards(StackPane layout, Card[] deckNum, String[][] cards) throws FileNotFoundException{
+    public int compCards(StackPane layout, Card[] deckNum, String[][] cards) throws FileNotFoundException{
         
         shuffle(deckNum);
 
@@ -129,6 +146,12 @@ public class Door4 extends Application {
         if(deckNum[1].rank + deckNum[2].rank <= 16){
             Card card3 = deckNum[3];
 
+            InputStream back3 = new FileInputStream("images/CardBack.png");
+            Image imageback3 = new Image(back3);
+            ImageView ivback3 = new ImageView();
+            ivback3.setImage(imageback3);
+            layout.getChildren().addAll(ivback3);
+
             if(deckNum[1].rank + deckNum[2].rank + card3.rank > 21){
 
                 int suit1 = deckNum[1].suit;
@@ -139,24 +162,23 @@ public class Door4 extends Application {
                 int rank2 = deckNum[2].rank;
                 int rank3 = deckNum[3].rank;
 
-
                 InputStream stream3 = new FileInputStream("images/" + cards[suit1][rank1].toString());
                 Image image3 = new Image(stream3);
                 ImageView iv3 = new ImageView();
                 iv3.setImage(image3);
-                cards[suit1][rank1] = null;
+                cards[suit1][rank1] = "";
 
                 InputStream stream4 = new FileInputStream("images/" + cards[suit2][rank2].toString());
                 Image image4 = new Image(stream4);
                 ImageView iv4 = new ImageView();
                 iv4.setImage(image4);
-                cards[suit2][rank2] = null;
+                cards[suit2][rank2] = "";
 
                 InputStream stream5 = new FileInputStream("images/" + cards[suit3][rank3].toString());
                 Image image5 = new Image(stream5);
                 ImageView iv5 = new ImageView();
                 iv5.setImage(image5);
-                cards[suit3][rank3] = null;
+                cards[suit3][rank3] = ""; // fix this to actually remove
                 
                 layout.getChildren().addAll(iv3);
                 layout.getChildren().addAll(iv4);
@@ -166,24 +188,42 @@ public class Door4 extends Application {
                 Label winLabel = new Label("YOU WIN!");            
                 layout.getChildren().addAll(winLabel);
             }
+
+            else if(deckNum[1].rank + deckNum[2].rank + card3.rank <= 21){
+                return deckNum[1].rank + deckNum[2].rank + card3.rank;
+            }
         }
+
+        
+        return deckNum[1].rank + deckNum[2].rank;
+        
+         
         
     }
-    
-    public void play(StackPane layout, String[][] cards) throws FileNotFoundException{
-        InputStream stream = new FileInputStream(cards[(int) (Math.random() * 3)][(int) (Math.random() * cards[0].length - 1)]);
+
+    public void giveNewCard(StackPane layout, String[][] cards) throws FileNotFoundException {
+        String picRem = cards[(int) (Math.random() * 3)][(int) (Math.random() * cards[0].length - 1)];
+        InputStream stream = new FileInputStream(picRem);
         Image image = new Image(stream);
         ImageView iv1 = new ImageView();
         iv1.setImage(image);
-
-        InputStream stream2 = new FileInputStream(cards[(int) (Math.random() * 3)][(int) (Math.random() * cards[0].length - 1)]);
-        Image image2 = new Image(stream2);
-        ImageView iv2 = new ImageView();
-        iv2.setImage(image2);
+        for(int i = 0; i < cards.length; i++){
+            for(int j = 0; j < cards[i].length; j++){
+                if(cards[i][j] == picRem){
+                    cards[i][j] = "";
+                }
+            }
+        }
 
         layout.getChildren().addAll(iv1);
-        layout.getChildren().addAll(iv2);
+
+    }
+    
+    public void play(StackPane layout, String[][] cards) throws FileNotFoundException{
         
+        giveNewCard(layout, cards);
+        giveNewCard(layout, cards);
+
             
         
     }

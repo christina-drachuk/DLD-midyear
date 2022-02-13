@@ -106,7 +106,12 @@ private Scene scene;
 
         door4.setOnAction( e -> {
             System.out.println("clicked!");
-            stage.setScene(Scene4.getScene3());
+            try {
+                stage.setScene(Scene4.getScene4());
+            } catch (FileNotFoundException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
             }
         );
 
