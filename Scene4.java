@@ -5,6 +5,21 @@
 // public class Scene4 {
 //     public static VBox layout4 = new VBox();
 //     public static Scene scene4 = new Scene(layout4, 1300, 700);
+//     public static Scene getScene3() {            
+        
+//         Label label4 = new Label("This is the fourth Scene");
+//         layout4.getChildren().addAll(label4);
+//         return scene4;
+//     }
+
+// }
+// import javafx.scene.Scene;
+// import javafx.scene.control.Label;
+// import javafx.scene.layout.VBox;
+
+// public class Scene4 {
+//     public static VBox layout4 = new VBox();
+//     public static Scene scene4 = new Scene(layout4, 1300, 700);
 //     public static Scene getScene4() {            
 
 //         Label label4 = new Label("This is the fourth Scene");
@@ -36,6 +51,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
+import java.lang.Math;
 
 import javax.swing.LayoutStyle;
 
@@ -56,24 +72,24 @@ public class Scene4 {
         
 
         String[][] cardNames = {
-                { "2_of_clubs.png", "3_of_clubs.png", "4_of_clubs.png", "5_of_clubs.png", "6_of_clubs.png",
-                        "7_of_clubs.png", "8_of_clubs.png", "9_of_clubs.png", "10_of_clubs.png", "jack_of_clubs.png",
-                        "queen_of_clubs.png", "king_of_clubs.png", "ace_of_clubs.png" },
-                { "2_of_diamonds.png", "3_of_diamonds.png", "4_of_diamonds.png", "5_of_diamonds.png",
-                        "6_of_diamonds.png", "7_of_diamonds.png", "8_of_diamonds.png", "9_of_diamonds.png",
-                        "10_of_diamonds.png", "jack_of_diamonds.png", "queen_of_diamonds.png", "king_of_diamonds.png",
-                        "ace_of_diamonds.png" },
-                { "2_of_spades.png", "3_of_spades.png", "4_of_spades.png", "5_of_spades.png", "6_of_spades.png",
-                        "7_of_spades.png", "8_of_spades.png", "9_of_spades.png", "10_of_spades.png",
-                        "jack_of_spades.png", "queen_of_spades.png", "king_of_spades.png", "ace_of_spades.png" },
-                { "2_of_hearts.png", "3_of_hearts.png", "4_of_hearts.png", "5_of_hearts.png", "6_of_hearts.png",
-                        "7_of_hearts.png", "8_of_hearts.png", "9_of_hearts.png", "10_of_hearts.png",
-                        "jack_of_hearts.png", "queen_of_hearts.png", "king_of_hearts.png", "ace_of_hearts.png", } };
+                { "images/2_of_clubs.png", "images/3_of_clubs.png", "images/4_of_clubs.png", "images/5_of_clubs.png", "images/6_of_clubs.png",
+                        "images/7_of_clubs.png", "images/8_of_clubs.png", "images/9_of_clubs.png", "images/10_of_clubs.png", "images/jack_of_clubs.png",
+                        "images/queen_of_clubs.png", "images/king_of_clubs.png", "images/ace_of_clubs.png" },
+                { "images/2_of_diamonds.png", "images/3_of_diamonds.png", "images/4_of_diamonds.png", "images/5_of_diamonds.png",
+                        "images/6_of_diamonds.png", "images/7_of_diamonds.png", "images/8_of_diamonds.png", "images/9_of_diamonds.png",
+                        "images/10_of_diamonds.png", "images/jack_of_diamonds.png", "images/queen_of_diamonds.png", "images/king_of_diamonds.png",
+                        "images/ace_of_diamonds.png" },
+                { "images/2_of_spades.png", "images/3_of_spades.png", "images/4_of_spades.png", "images/5_of_spades.png", "images/6_of_spades.png",
+                        "images/7_of_spades.png", "images/8_of_spades.png", "images/9_of_spades.png", "images/10_of_spades.png",
+                        "images/jack_of_spades.png", "images/queen_of_spades.png", "images/king_of_spades.png", "images/ace_of_spades.png" },
+                { "images/2_of_hearts.png", "images/3_of_hearts.png", "images/4_of_hearts.png", "images/5_of_hearts.png", "images/6_of_hearts.png",
+                        "images/7_of_hearts.png", "images/8_of_hearts.png", "images/9_of_hearts.png", "images/10_of_hearts.png",
+                        "images/jack_of_hearts.png", "images/queen_of_hearts.png", "images/king_of_hearts.png", "images/ace_of_hearts.png", } };
 
         Card[] deckSeen = new Card[52];
         int index = 0;
-        for (int suit = 0; suit <= 3; suit++) {
-            for (int rank = 1; rank <= 13; rank++) {
+        for (int suit = 0; suit < 3; suit++) {
+            for (int rank = 1; rank < 13; rank++) {
                 deckSeen[index] = new Card(rank, suit);
                 index++;
             }
@@ -81,22 +97,22 @@ public class Scene4 {
 
         Card[] deckNum = new Card[52];
         int index2 = 0;
-        for (int suit = 0; suit <= 3; suit++) {
-            for (int rank = 2; rank <= 10; rank++) {
+        for (int suit = 0; suit < 3; suit++) {
+            for (int rank = 2; rank < 10; rank++) {
                 deckNum[index2] = new Card(rank, suit);
                 index2++;
             }
         }
         int index3 = 35;
-        for (int suit = 0; suit <= 3; suit++) {
-            for (int rank = 0; rank <= 12; rank++) {
+        for (int suit = 0; suit < 3; suit++) {
+            for (int rank = 0; rank < 4; rank++) {
                 deckNum[index3] = new Card(10, suit);
                 index3++;
             }
         }
         int index4 = 47;
-        for (int suit = 0; suit <= 3; suit++) {
-            for (int rank = 0; rank <= 4; rank++) {
+        for (int suit = 0; suit < 3; suit++) {
+            for (int rank = 0; rank < 1; rank++) {
                 deckNum[index4] = new Card(1, suit);
                 index4++;
             }
@@ -111,10 +127,30 @@ public class Scene4 {
 
         btn1.setOnAction(e -> {
             try {
-                giveNewCard(layout4, cardNames);
-            } catch (FileNotFoundException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
+                String picRem = cardNames[(int) (Math.random() * cardNames.length)][(int) (Math.random() * cardNames[0].length)];
+    
+                InputStream streamNewCard = new FileInputStream(picRem);
+            Image imageNew = new Image(streamNewCard);
+            ImageView ivNew = new ImageView();
+            ivNew.setImage(imageNew);
+            // for (int i = 0; i < cards.length; i++) {
+            //     for (int j = 0; j < cards[i].length; j++) {
+            //         if (cards[i][j] == picRem) {
+            //             cards[i][j] = "";
+            //         }
+            //     }
+            // }
+            ivNew.setScaleX(100);
+            ivNew.setScaleY(150);
+    
+            ivNew.setTranslateX(50);
+            ivNew.setTranslateY(-100);
+            
+    
+    
+            layout4.getChildren().addAll(ivNew);
+            } catch (FileNotFoundException ex) {
+                System.out.println("AHHHHHHHHHHHH");
             }
         });
 
@@ -153,10 +189,22 @@ public class Scene4 {
         ImageView iv1 = new ImageView();
         iv1.setImage(image);
 
+        iv1.setScaleX(50);
+        iv1.setScaleY(75);
+        
+        iv1.setTranslateX(50);
+        iv1.setTranslateY(50);
+
         InputStream stream2 = new FileInputStream("images/CardBack.png");
         Image image2 = new Image(stream2);
         ImageView iv2 = new ImageView();
         iv2.setImage(image2);
+
+        iv2.setScaleX(50);
+        iv2.setScaleY(75);
+        
+        iv2.setTranslateX(100);
+        iv2.setTranslateY(100);
 
         layout.getChildren().addAll(iv1);
         layout.getChildren().addAll(iv2);
@@ -168,7 +216,16 @@ public class Scene4 {
             Image imageback3 = new Image(back3);
             ImageView ivback3 = new ImageView();
             ivback3.setImage(imageback3);
+
+            ivback3.setScaleX(50);
+            ivback3.setScaleY(75);
+            
+            ivback3.setTranslateX(150);
+            ivback3.setTranslateY(150);
+
             layout.getChildren().addAll(ivback3);
+
+            
 
             if (deckNum[1].rank + deckNum[2].rank + card3.rank > 21) {
 
@@ -180,23 +237,41 @@ public class Scene4 {
                 int rank2 = deckNum[2].rank;
                 int rank3 = deckNum[3].rank;
 
-                InputStream stream3 = new FileInputStream("images/" + cards[suit1][rank1].toString());
+                InputStream stream3 = new FileInputStream(cards[suit1][rank1]);
                 Image image3 = new Image(stream3);
                 ImageView iv3 = new ImageView();
                 iv3.setImage(image3);
-                cards[suit1][rank1] = "";
+                //cards[suit1][rank1] = "";
 
-                InputStream stream4 = new FileInputStream("images/" + cards[suit2][rank2].toString());
+                iv3.setScaleX(50);
+                iv3.setScaleY(75);
+                
+                iv3.setTranslateX(100);
+                iv3.setTranslateY(100);
+
+                InputStream stream4 = new FileInputStream(cards[suit2][rank2]);
                 Image image4 = new Image(stream4);
                 ImageView iv4 = new ImageView();
                 iv4.setImage(image4);
-                cards[suit2][rank2] = "";
+                //cards[suit2][rank2] = "";
 
-                InputStream stream5 = new FileInputStream("images/" + cards[suit3][rank3].toString());
+                iv4.setScaleX(50);
+                iv4.setScaleY(75);
+                
+                iv4.setTranslateX(150);
+                iv4.setTranslateY(150);
+
+                InputStream stream5 = new FileInputStream(cards[suit3][rank3]);
                 Image image5 = new Image(stream5);
                 ImageView iv5 = new ImageView();
                 iv5.setImage(image5);
-                cards[suit3][rank3] = ""; // fix this to actually remove
+                //cards[suit3][rank3] = ""; // fix this to actually remove
+
+                iv5.setScaleX(50);
+                iv5.setScaleY(75);
+                
+                iv5.setTranslateX(200);
+                iv5.setTranslateY(200);
 
                 layout.getChildren().addAll(iv3);
                 layout.getChildren().addAll(iv4);
@@ -215,34 +290,65 @@ public class Scene4 {
 
     }
 
-    public static void giveNewCard(VBox layout, String[][] cards) throws FileNotFoundException {
+    //public static void giveNewCard(VBox layout, String[][] cards) throws FileNotFoundException {
+
+        
+    //}
+
+    public static void play(VBox layout, String[][] cards) throws FileNotFoundException {
 
         try {
-            String picRem = cards[(int) (Math.random() * 3)][(int) (Math.random() * cards[0].length - 1)];
+            String picRem = cards[(int) (Math.random() * cards.length)][(int) (Math.random() * cards[0].length)];
 
             InputStream stream = new FileInputStream(picRem);
         Image image = new Image(stream);
         ImageView iv1 = new ImageView();
         iv1.setImage(image);
-        for (int i = 0; i < cards.length; i++) {
-            for (int j = 0; j < cards[i].length; j++) {
-                if (cards[i][j] == picRem) {
-                    cards[i][j] = "";
-                }
-            }
-        }
+        // for (int i = 0; i < cards.length; i++) {
+        //     for (int j = 0; j < cards[i].length; j++) {
+        //         if (cards[i][j] == picRem) {
+        //             cards[i][j] = "";
+        //         }
+        //     }
+        // }
+        iv1.setScaleX(100);
+        iv1.setScaleY(150);
+
+        iv1.setTranslateX(50);
+        iv1.setTranslateY(-100);
+        
+
 
         layout.getChildren().addAll(iv1);
         } catch (NumberFormatException e) {
             System.out.println("AHHHHHHHHHHHH");
         }
 
-    }
 
-    public static void play(VBox layout, String[][] cards) throws FileNotFoundException {
+        try {
+            String picRem = cards[(int) (Math.random() * cards.length)][(int) (Math.random() * cards[0].length)];
 
-        giveNewCard(layout, cards);
-        giveNewCard(layout, cards);
+            InputStream stream2 = new FileInputStream(picRem);
+            Image image2 = new Image(stream2);
+            ImageView iv2 = new ImageView();
+            iv2.setImage(image2);
+            // for (int i = 0; i < cards.length; i++) {
+            //     for (int j = 0; j < cards[i].length; j++) {
+            //         if (cards[i][j] == picRem) {
+            //             cards[i][j] = "";
+            //         }
+            //     }
+            // }
+            iv2.setScaleX(100);
+            iv2.setScaleY(150);
+
+            iv2.setTranslateX(200);
+            iv2.setTranslateY(-100);
+
+            layout.getChildren().addAll(iv2);
+            } catch (NumberFormatException e) {
+                System.out.println("AHHHHHHHHHHHH");
+            }
 
     }
 
