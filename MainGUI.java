@@ -45,6 +45,10 @@ private Scene scene;
         arg0.setTitle("4 wits"); 
 
         StackPane layout = new StackPane();
+        layout.setBackground(new Background(new BackgroundImage(new Image("brick.jpg"),
+            BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+            new BackgroundSize(1750, 800, true, true, true, true))));
+
         Text text1 = new Text("\nChoose a door to enter through!");
         text1.setFont(Font.font ("Courier New", FontWeight.BOLD, 35));
         text1.setFill(Color.BLACK);
@@ -133,23 +137,21 @@ private Scene scene;
 
 
  
-
-
         Scene scene = new Scene(layout, 1250, 700);
-        Image img = new Image("brick.jpg");
-        ImageView imageView2 = new ImageView(img);
-        ImageView iv3 = new ImageView();
-        iv3.setImage(img);
-        Rectangle2D viewportRect = new Rectangle2D(40, 35, 110, 110);
-        iv3.setViewport(viewportRect);
-        BackgroundImage bImg = new BackgroundImage(img,
-                                                   BackgroundRepeat.NO_REPEAT,
-                                                   BackgroundRepeat.NO_REPEAT,
-                                                   BackgroundPosition.DEFAULT,
-                                                   BackgroundSize.DEFAULT);
-        Background bGround = new Background(bImg);
-        layout.setBackground(bGround);
-        layout.setStyle("ok.jpg");
+        //Image img = new Image("brick.jpg");
+        //ImageView iv3 = new ImageView();
+        //iv3.setImage(img);
+        //Rectangle2D viewportRect = new Rectangle2D(40, 35, 110, 110);
+        //iv3.setViewport(viewportRect);
+        //BackgroundImage bImg = new BackgroundImage(img,
+                                                   //BackgroundRepeat.NO_REPEAT,
+                                                   //BackgroundRepeat.NO_REPEAT,
+                                                   //BackgroundPosition.DEFAULT,
+                                                   //BackgroundSize.DEFAULT);
+                                                   
+        //Background bGround = new Background(bImg);
+        //new BackgroundSize(1250, 700, true, true, true))));
+        //layout.setBackground(bGround);
         arg0.setScene(scene);
         arg0.show();
     }
