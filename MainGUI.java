@@ -1,11 +1,19 @@
 import javafx.application.Application;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.event.ActionEvent;
 // import javafx.event.ActionEvent;
 // import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 // import javafx.scene.control.Button;
 // import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -37,6 +45,10 @@ private Scene scene;
         arg0.setTitle("4 Wits");
 
         StackPane layout = new StackPane();
+        layout.setBackground(new Background(new BackgroundImage(new Image("brick.jpg"),
+            BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+            new BackgroundSize(1750, 800, true, true, true, true))));
+
         Text text1 = new Text("\nChoose a door to enter through!");
         text1.setFont(Font.font ("Courier New", FontWeight.BOLD, 35));
         text1.setFill(Color.BLACK);
@@ -84,7 +96,7 @@ private Scene scene;
 
         door3.setOnAction( e -> {
             System.out.println("clicked!");
-            stage.setScene(Scene3.getScene3());
+            stage.setScene(Scene3.getScene3(stage));
             }
         );
 
@@ -99,6 +111,20 @@ private Scene scene;
         );
 
         Scene scene = new Scene(layout, 1250, 700);
+        //Image img = new Image("brick.jpg");
+        //ImageView iv3 = new ImageView();
+        //iv3.setImage(img);
+        //Rectangle2D viewportRect = new Rectangle2D(40, 35, 110, 110);
+        //iv3.setViewport(viewportRect);
+        //BackgroundImage bImg = new BackgroundImage(img,
+                                                   //BackgroundRepeat.NO_REPEAT,
+                                                   //BackgroundRepeat.NO_REPEAT,
+                                                   //BackgroundPosition.DEFAULT,
+                                                   //BackgroundSize.DEFAULT);
+                                                   
+        //Background bGround = new Background(bImg);
+        //new BackgroundSize(1250, 700, true, true, true))));
+        //layout.setBackground(bGround);
         arg0.setScene(scene);
         arg0.show();
         

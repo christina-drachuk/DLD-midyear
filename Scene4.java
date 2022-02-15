@@ -30,16 +30,16 @@
 // }
 import javafx.application.Application;
 import javafx.scene.Node;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+// import javafx.event.ActionEvent;
+// import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.PickResult;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+// import javafx.scene.control.Button;
+// import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -69,6 +69,7 @@ public class Scene4 {
         Label label4 = new Label("This is the fourth Scene");
         layout4.getChildren().addAll(label4);
 
+        
 
         String[][] cardNames = {
                 { "images/2_of_clubs.png", "images/3_of_clubs.png", "images/4_of_clubs.png", "images/5_of_clubs.png", "images/6_of_clubs.png",
@@ -96,22 +97,24 @@ public class Scene4 {
 
         Card[] deckNum = new Card[52];
         int index2 = 0;
-        for (int suit = 0; suit < 4; suit++) {
-            for (int rank = 2; rank <= 10; rank++) {
+        for (int suit = 0; suit < 3; suit++) {
+            for (int rank = 2; rank < 10; rank++) {
                 deckNum[index2] = new Card(rank, suit);
                 index2++;
             }
         }
-        for (int suit = 0; suit < 4; suit++) {
-            for (int rank = 0; rank <= 4; rank++) {
-                deckNum[index2] = new Card(10, suit);
-                index2++;
+        int index3 = 35;
+        for (int suit = 0; suit < 3; suit++) {
+            for (int rank = 0; rank < 4; rank++) {
+                deckNum[index3] = new Card(10, suit);
+                index3++;
             }
         }
-        for (int suit = 0; suit < 4; suit++) {
+        int index4 = 47;
+        for (int suit = 0; suit < 3; suit++) {
             for (int rank = 0; rank < 1; rank++) {
-                deckNum[index2] = new Card(1, suit);
-                index2++;
+                deckNum[index4] = new Card(1, suit);
+                index4++;
             }
         }
 
@@ -124,11 +127,7 @@ public class Scene4 {
 
         btn1.setOnAction(e -> {
             try {
-                int rand1 = (int) (Math.random() * cardNames.length);
-
-                int rand2 = (int) (Math.random() * cardNames[0].length);
-
-                String picRem = cardNames[rand1][rand2];
+                String picRem = cardNames[(int) (Math.random() * cardNames.length)][(int) (Math.random() * cardNames[0].length)];
     
                 InputStream streamNewCard = new FileInputStream(picRem);
             Image imageNew = new Image(streamNewCard);
@@ -141,15 +140,11 @@ public class Scene4 {
             //         }
             //     }
             // }
-            ivNew.prefWidth(10);
-            ivNew.prefHeight(15);
+            ivNew.setScaleX(100);
+            ivNew.setScaleY(150);
     
             ivNew.setTranslateX(50);
             ivNew.setTranslateY(-100);
-
-            for(int i = 0; i < deckNum.length; i++){
-
-            }
             
     
     
@@ -194,8 +189,8 @@ public class Scene4 {
         ImageView iv1 = new ImageView();
         iv1.setImage(image);
 
-        iv1.prefWidth(5);
-        iv1.prefHeight(7.5);
+        iv1.setScaleX(50);
+        iv1.setScaleY(75);
         
         iv1.setTranslateX(50);
         iv1.setTranslateY(50);
@@ -205,8 +200,8 @@ public class Scene4 {
         ImageView iv2 = new ImageView();
         iv2.setImage(image2);
 
-        iv2.prefWidth(5);
-        iv2.prefHeight(7.5);
+        iv2.setScaleX(50);
+        iv2.setScaleY(75);
         
         iv2.setTranslateX(100);
         iv2.setTranslateY(100);
@@ -222,8 +217,8 @@ public class Scene4 {
             ImageView ivback3 = new ImageView();
             ivback3.setImage(imageback3);
 
-            ivback3.prefWidth(5);
-            ivback3.prefHeight(7.5);
+            ivback3.setScaleX(50);
+            ivback3.setScaleY(75);
             
             ivback3.setTranslateX(150);
             ivback3.setTranslateY(150);
@@ -248,8 +243,8 @@ public class Scene4 {
                 iv3.setImage(image3);
                 //cards[suit1][rank1] = "";
 
-                iv3.prefWidth(5);
-                iv3.prefHeight(7.5);
+                iv3.setScaleX(50);
+                iv3.setScaleY(75);
                 
                 iv3.setTranslateX(100);
                 iv3.setTranslateY(100);
@@ -260,8 +255,8 @@ public class Scene4 {
                 iv4.setImage(image4);
                 //cards[suit2][rank2] = "";
 
-                iv4.prefWidth(5);
-                iv4.prefHeight(7.5);
+                iv4.setScaleX(50);
+                iv4.setScaleY(75);
                 
                 iv4.setTranslateX(150);
                 iv4.setTranslateY(150);
@@ -272,8 +267,8 @@ public class Scene4 {
                 iv5.setImage(image5);
                 //cards[suit3][rank3] = ""; // fix this to actually remove
 
-                iv5.prefWidth(5);
-                iv5.prefHeight(7.5);
+                iv5.setScaleX(50);
+                iv5.setScaleY(75);
                 
                 iv5.setTranslateX(200);
                 iv5.setTranslateY(200);
@@ -316,8 +311,8 @@ public class Scene4 {
         //         }
         //     }
         // }
-        iv1.prefWidth(10);
-        iv1.prefHeight(15);
+        iv1.setScaleX(100);
+        iv1.setScaleY(150);
 
         iv1.setTranslateX(50);
         iv1.setTranslateY(-100);
@@ -344,9 +339,8 @@ public class Scene4 {
             //         }
             //     }
             // }
-            iv2.prefWidth(10);
-            iv2.prefHeight(15);
-            
+            iv2.setScaleX(100);
+            iv2.setScaleY(150);
 
             iv2.setTranslateX(200);
             iv2.setTranslateY(-100);
