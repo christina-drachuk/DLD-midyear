@@ -34,7 +34,7 @@ private Scene scene;
     @Override
     public void start(Stage arg0) throws Exception {
         stage = arg0;
-        arg0.setTitle("ARGO"); //TODO rename
+        arg0.setTitle("4 Wits");
 
         StackPane layout = new StackPane();
         Text text1 = new Text("\nChoose a door to enter through!");
@@ -42,8 +42,6 @@ private Scene scene;
         text1.setFill(Color.BLACK);
         StackPane.setAlignment(text1, Pos.TOP_CENTER);
         layout.getChildren().add(text1);
-
-
         
         Button door1 = makeDoors(layout, 250, 400, -450, "Scary");
         Button door2 = makeDoors(layout, 250, 400, -150, "Not scary at all");
@@ -66,24 +64,18 @@ private Scene scene;
         VBox layout4 = new VBox();
         VBox layout5 = new VBox();
 
+        stage.setScene(scene);
+
         door1.setOnAction( e -> {
             System.out.println("clicked!");
             try {
-                stage.setScene(Scene1.getScene1());
-            } catch (FileNotFoundException e1) {
-                // TODO Auto-generated catch block
+                stage.setScene(Scene1.getScene1(this.stage, this.scene));
+             } catch (FileNotFoundException e1) {
                 e1.printStackTrace();
             }
             }
         );
-
-            
-            stage.setScene(scene);
         
-        // Label label1 = new Label("This is the First Scene");
-        // Label label2 = new Label("This is the First Scene");
-        // Label label3 = new Label("So you have decided to enter through this door thought we told you not to...\n well there is no going back now so lets test your worthiness");
-        // Label label4 = new Label("This is the First Scene");
         door2.setOnAction( e -> {
             System.out.println("clicked!");
             stage.setScene(Scene2.getScene2());
@@ -98,36 +90,18 @@ private Scene scene;
 
         door4.setOnAction( e -> {
             System.out.println("clicked!");
-            stage.setScene(Scene4.getScene3());
+            try {
+                stage.setScene(Scene4.getScene4());
+            } catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            }
             }
         );
-        
-        // Label label2 = new Label("This is the First Scene");
-        // Label label3 = new Label("This is the First Scene");
-        // Label label4 = new Label("This is the First Scene");
-
-        
-        // Scene scene1 = new Scene(layout2, 1300, 700);
-        // door1.setOnAction(e -> arg0.setScene(scene1));
-
-        // Scene scene2 = new Scene(layout3, 1300, 700);
-        // door2.setOnAction(e -> arg0.setScene(scene2));
-
-        // Scene scene3 = new Scene(layout4, 1300, 700);
-        // door3.setOnAction(e -> arg0.setScene(scene3));
-
-        // Scene scene4 = new Scene(layout5, 1300, 700);
-        // door4.setOnAction(e -> arg0.setScene(scene4));
-
-        // layout2.getChildren().addAll(label1);
-
-
- 
-
 
         Scene scene = new Scene(layout, 1250, 700);
         arg0.setScene(scene);
         arg0.show();
+        
     }
 
     public Button makeDoors(StackPane layout, int width, int length, int translate, String message){
@@ -136,17 +110,8 @@ private Scene scene;
         door.setTranslateX(translate);
         layout.getChildren().add(door);
 
-       
-        
-        //);
         return door;
         }
-
-        
-        //@Override
-        // public void handle(ActionEvent actionEvent) {
-                
-        // }
         
 
 }
