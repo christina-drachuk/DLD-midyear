@@ -57,21 +57,21 @@ private Scene scene;
 
 
         
-        Button door1 = makeDoors(layout, 250, 400, -450, "Scary");
-        Button door2 = makeDoors(layout, 250, 400, -150, "Not scary at all");
-        Button door3 = makeDoors(layout, 250, 400, 150, "WARNING DO NOT ENTER");
-        Button door4 = makeDoors(layout, 250, 400, 450, "Enter please :)");
+        Button door1 = makeDoors(layout, 250, 400, -400, "Scary");
+        Button door2 = makeDoors(layout, 250, 400, 0, "Not scary at all");
+        Button door3 = makeDoors(layout, 250, 400, 400, "WARNING DO NOT ENTER");
+        //Button door4 = makeDoors(layout, 250, 400, 450, "Enter please :)");
         Font font = Font.font("Courier New", FontWeight.BOLD, 16);
 
         door1.setStyle("-fx-background-color: #8FBC8F");
         door2.setStyle("-fx-background-color: #B0C4DE");
         door3.setStyle("-fx-background-color: #9370DB");
-        door4.setStyle("-fx-background-color: #D8BFD8");
+        //door4.setStyle("-fx-background-color: #D8BFD8");
 
         door1.setFont(font);
         door2.setFont(font);
         door3.setFont(font);
-        door4.setFont(font);
+        //door4.setFont(font);
 
         VBox layout2 = new VBox();
         VBox layout3 = new VBox();
@@ -108,16 +108,15 @@ private Scene scene;
             }
         );
 
-        door4.setOnAction( e -> {
-            System.out.println("clicked!");
-            try {
-                stage.setScene(Scene4.getScene4());
-            } catch (FileNotFoundException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-            }
-        );
+        // door4.setOnAction( e -> {
+        //     System.out.println("clicked!");
+        //     try {
+        //         stage.setScene(Scene4.getScene4());
+        //     } catch (FileNotFoundException e1) {
+        //         e1.printStackTrace();
+        //     }
+        //     }
+        // );
 
         
         
