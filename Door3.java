@@ -30,7 +30,7 @@ public class Door3 extends MainGUI {
         text1.setFont(Font.font ("Courier New", FontWeight.BOLD, 35));
         text1.setFill(Color.BLACK);
         StackPane.setAlignment(text1, Pos.TOP_CENTER);
-        layout3.getChildren().addAll(text1);
+        // layout3.getChildren().addAll(text1);
 
         VBox vbox1 = new VBox();
         VBox vbox2 = new VBox();
@@ -45,8 +45,8 @@ public class Door3 extends MainGUI {
         button1.setTranslateX(150);
         button1.setTranslateY(350);
         button1.setStyle("-fx-border-color: #9370DB; -fx-border-width: 5px;");
-        layout3.getChildren().addAll(button1);
-        button1.setOnAction(e -> stage.setScene(scene1));
+        // layout3.getChildren().addAll(button1);
+        // button1.setOnAction(e -> stage.setScene(scene1));
          
 
 
@@ -58,14 +58,14 @@ public class Door3 extends MainGUI {
         button2.setStyle("-fx-border-color: #9370DB; -fx-border-width: 5px;");
         button2.setTranslateX(100);
         button2.setTranslateX(400);
-        layout3.getChildren().addAll(button2);
+        // layout3.getChildren().addAll(button2);
         //layout3.setAlignment(Pos.BASELINE_RIGHT);
         //layout3.getChildren().addAll(button2);
 
 
-        return scene3;
+        // return scene3;
     }
 
 }
 
-}
+//}

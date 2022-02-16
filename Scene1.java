@@ -15,8 +15,8 @@ import javafx.scene.image.ImageView;
 import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Arrays;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.RowConstraints;
+// import javafx.scene.layout.ColumnConstraints;
+// import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -28,10 +28,10 @@ public class Scene1 {
         GridPane layout0 = new GridPane();
         GridPane layout1 = new GridPane();
         
-        RowConstraints rowConstraints = new RowConstraints(10);
-        layout1.getRowConstraints().add(rowConstraints);
-        ColumnConstraints colConstraints = new ColumnConstraints(10);
-        layout1.getColumnConstraints().add(colConstraints);
+        // RowConstraints rowConstraints = new RowConstraints(100);
+        // layout1.getRowConstraints().add(rowConstraints);
+        // ColumnConstraints colConstraints = new ColumnConstraints(100);
+        // layout1.getColumnConstraints().add(colConstraints);
         
         Label label1 = new Label("Dungeon of Riddles");
         Label label2 = new Label("In order to pass through his dungeon, you must answer the harrowing riddles of Tringus...");
@@ -46,8 +46,7 @@ public class Scene1 {
         back.setWrapText(true);
 
         back.setOnAction( e -> {
-            var stage = (Stage) scene1.getWindow();
-            stage.setScene(mainScene);
+            mainStage.setScene(mainScene);
         }
         );
         
@@ -94,11 +93,14 @@ public class Scene1 {
         layout0.add(iv1, 1, 4);
         
         layout1.add(questionLabel, 1, 2);
+        GridPane.setRowIndex(questionLabel, 3);
+        
         
         Label currentLabel = new Label();
         currentLabel.setMaxWidth(400);
         currentLabel.setWrapText(true);
         layout1.add(currentLabel, 1, 3);
+        GridPane.setRowIndex(currentLabel, 12);
 
         TextField riddleGuess = new TextField();
         riddleGuess.setMaxWidth(100);
@@ -200,7 +202,11 @@ public class Scene1 {
         });
 
         scene1.setUserData(new QuestionInfo("text", 3));
-        
+        layout0.setHgap(10);
+        layout0.setVgap(10);
+        layout1.setHgap(10);
+        layout1.setVgap(10);
+
         return scene1;
     }
 }

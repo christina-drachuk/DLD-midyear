@@ -76,12 +76,13 @@ private Scene scene;
         VBox layout4 = new VBox();
         VBox layout5 = new VBox();
 
-        stage.setScene(scene);
+       // stage.setScene(scene);
+       Scene scene = new Scene(layout, 1250, 700);
 
         door1.setOnAction( e -> {
             System.out.println("clicked!");
             try {
-                stage.setScene(Scene1.getScene1(this.stage, this.scene));
+                stage.setScene(Scene1.getScene1(stage, scene));
              } catch (FileNotFoundException e1) {
                 e1.printStackTrace();
             }
@@ -110,7 +111,6 @@ private Scene scene;
             }
         );
 
-        Scene scene = new Scene(layout, 1250, 700);
         //Image img = new Image("brick.jpg");
         //ImageView iv3 = new ImageView();
         //iv3.setImage(img);
