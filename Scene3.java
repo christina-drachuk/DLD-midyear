@@ -233,7 +233,7 @@ public class Scene3 {
             BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
             new BackgroundSize(1750, 800, true, true, true, true))));
 
-        Text text1 = new Text("\n\n   Oh no! That was the incorrect answer\n   I guess you don't have what it takes");
+        Text text1 = new Text("\n\n   Oh no! That was the incorrect answer.\n   I guess you don't have what it takes :0");
         text1.setFont(Font.font ("Courier New", FontWeight.BOLD, 50));
         layout6.setTop(text1);
         HBox hb = new HBox();

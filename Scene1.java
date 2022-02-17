@@ -5,12 +5,22 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.image.Image;
@@ -28,6 +38,13 @@ public class Scene1 {
         Scene scene1 = new Scene(root, 1300, 700);
         GridPane layout0 = new GridPane();
         GridPane layout1 = new GridPane();
+        BackgroundFill background_fill = new BackgroundFill(Color.LIGHTBLUE, 
+        CornerRadii.EMPTY, Insets.EMPTY);
+        Background background = new Background(background_fill);
+        root.setBackground(background);
+
+
+
         
         Label label1 = new Label("Dungeon of Riddles");
         Label label2 = new Label("In order to pass through his dungeon, you must answer the harrowing riddles of Tringus...");
