@@ -40,18 +40,11 @@ public class Scene3 {
         layout12.setCenter(hb);
         hb.setAlignment(Pos.CENTER);
 
-        //back to main screen button
-        Button correctButton = new Button("Go back to\nmain screen");
-        correctButton.setPrefSize(200, 60); 
-        Font font = Font.font("Courier New", FontWeight.BOLD, 15);
-        correctButton.setFont(font);
-        correctButton.setStyle("-fx-border-color: #9370DB; -fx-border-width: 5px;");
-        hb.getChildren().addAll(correctButton);
-        correctButton.setOnAction(e -> stage.setScene(wrongAnswer1(stage)));
 
         //right button
         Button wrongButton = new Button("Exit");
         wrongButton.setPrefSize(200, 60); 
+        Font font = Font.font("Courier New", FontWeight.BOLD, 15);
         wrongButton.setFont(font);
         HBox.setMargin(wrongButton, new Insets(70, 70, 70, 70));
         wrongButton.setStyle("-fx-border-color: #9370DB; -fx-border-width: 5px;");
@@ -248,14 +241,14 @@ public class Scene3 {
         hb.setAlignment(Pos.CENTER);
 
         //return to main screen button
-        Button correctButton = new Button("Return to main screen");
+        Button correctButton = new Button("Exit");
         correctButton.setPrefSize(250, 80); 
         Font font = Font.font("Courier New", FontWeight.BOLD, 15);
         correctButton.setFont(font);
         correctButton.setStyle("-fx-border-color: #9370DB; -fx-border-width: 5px;");
         hb.getChildren().addAll(correctButton);
-        //how to go back to main screen
-        //correctButton.setOnAction(e -> stage.setScene(start(stage)));
+        correctButton.setOnAction((ActionEvent event) -> Platform.exit());
+
 
         return scene6;
     }
