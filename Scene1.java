@@ -172,7 +172,7 @@ public class Scene1 {
                 userPointsLbl.setText("Points: " + userPoints.getValue().toString());
                 userPointsLbl.setFont(Font.font ("Courier New", FontWeight.BOLD, 18));
                 
-                if (maxQuestions.get() == 0 && userPoints.get() >= 7 && triesLeft.get() == 0) {
+                if (maxQuestions.get() == 0 && userPoints.get() >= 7) {
                     currentLabel.setText("Congratulations, you have passed through the dungeon!");
                     currentLabel.setFont(Font.font ("Courier New", FontWeight.BOLD, 30));
                     userPointsLbl.setText("Points: " + userPoints.getValue().toString() + "/10");
