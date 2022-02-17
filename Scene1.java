@@ -5,11 +5,14 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.lang.Math;
@@ -36,11 +39,19 @@ public class Scene1 {
         Label label1 = new Label("Dungeon of Riddles");
         Label label2 = new Label("In order to pass through his dungeon, you must answer the harrowing riddles of Tringus...");
         Label label3 = new Label("There are 10 riddles; you have 3 tries for each, and you need 7 points to pass. Good luck.");
+        label1.setFont(Font.font ("Courier New", FontWeight.BOLD, 25));
+        label2.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
+        label3.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
+
+
+
 
         Label questionLabel = new Label("Riddle:");
+        questionLabel.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
         Label successState = new Label();
 
         Button back = new Button("Return to main screen");
+        back.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
         back.setMaxHeight(250);
         back.setMaxHeight(250);
         back.setWrapText(true);
@@ -79,6 +90,7 @@ public class Scene1 {
             "Say my name and I disappear. What am I?", "Forward, I am heavy, but backwards I am not. What am I?", "I am a box that holds keys without locks, yet they can unlock your soul. What am I?",
             "I'm full of holes, yet I'm full of water. What am I?")
         );
+
 
         ArrayList<String> answers = new ArrayList<String>(
             Arrays.asList("moon", "mountain", "darkness", "fish", "ground beef", "needle", "footsteps", "human", "river", "stars",
@@ -126,6 +138,8 @@ public class Scene1 {
             var userGuess = riddleGuess.getText();
             riddleGuess.clear();
             userPointsLbl.setText("Points: " + userPoints.getValue().toString());
+            userPointsLbl.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
+
 
             System.out.println(correctAnswer);
             String expected = correctAnswer.get();
@@ -134,10 +148,12 @@ public class Scene1 {
                 System.out.println("that is so true");
                 userPoints.set(userPoints.get() + 1);
                 currentLabel.setText("That answer is correct. You have been awarded one point.");
+                currentLabel.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
                 userPointsLbl.setText("Points: " + userPoints.getValue().toString());
                 
                 if (maxQuestions.get() == 0 && userPoints.get() >= 7) {
                     currentLabel.setText("Congratulations, you have passed through the dungeon!");
+                    currentLabel.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
                     userPointsLbl.setText("Points: " + userPoints.getValue().toString() + "/10");
                     layout1.getChildren().remove(riddleGuess);
                 }
@@ -145,6 +161,7 @@ public class Scene1 {
                 else if (maxQuestions.get() == 0 && userPoints.get() < 7) {
                     userPointsLbl.setText("Points: " + userPoints.getValue().toString() + "/10");
                     currentLabel.setText("Haha! Tringus got you, you shall not pass! Go back to the entrance...");
+                    currentLabel.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
                     // TODO add return to maingui button
                     layout1.getChildren().remove(riddleGuess);
                 }
@@ -167,13 +184,16 @@ public class Scene1 {
                 triesLeft.set(triesLeft.get() - 1);
                 if (maxQuestions.get() == 0 && userPoints.get() >= 7) {
                     currentLabel.setText("Congratulations, you have passed through the dungeon!");
+                    currentLabel.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
                     userPointsLbl.setText("Points: " + userPoints.getValue().toString() + "/10");
+                    userPointsLbl.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
                     layout1.getChildren().remove(riddleGuess);
                 }
 
                 else if (maxQuestions.get() == 0 && userPoints.get() < 7) {
                     userPointsLbl.setText("Points: " + userPoints.getValue().toString() + "/10");
                     currentLabel.setText("Haha! Tringus got you, you shall not pass! Go back to the entrance...");
+                    currentLabel.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
                     // TODO add return to maingui button
                     layout1.getChildren().remove(riddleGuess);
                     layout1.add(back, 1, 6);
@@ -181,10 +201,13 @@ public class Scene1 {
 
                 if (triesLeft.get() > 0) {
                     successState.setText("That answer was incorrect! You have " + triesLeft.getValue().toString() + " tries left.");
+                    successState.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
+
                 }
                 else {
                     // successState.setText("That answer was incorrect! You have " + triesLeft.getValue().toString() + " tries left.");
                     successState.setText("You have no more tries! Time to move on.");
+                    successState.setFont(Font.font ("Courier New", FontWeight.BOLD, 15));
                     if (!(maxQuestions.get() == 0)) {
                         int randIndex = (int) (Math.random() * riddles.size());
                         currentLabel.setText(riddles.get(randIndex));
