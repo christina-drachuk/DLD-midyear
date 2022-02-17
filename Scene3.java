@@ -248,14 +248,16 @@ public class Scene3 {
         hb.setAlignment(Pos.CENTER);
 
         //return to main screen button
-        Button correctButton = new Button("Return to main screen");
+        Button correctButton = new Button("Exit");
         correctButton.setPrefSize(250, 80); 
         Font font = Font.font("Courier New", FontWeight.BOLD, 15);
         correctButton.setFont(font);
         correctButton.setStyle("-fx-border-color: #9370DB; -fx-border-width: 5px;");
         hb.getChildren().addAll(correctButton);
+        correctButton.setOnAction((ActionEvent event) -> Platform.exit());
+
         //how to go back to main screen
-        correctButton.setOnAction(e -> stage.setScene(start(stage)));
+        //correctButton.setOnAction(e -> stage.setScene(start(stage)));
 
         return scene6;
     }
