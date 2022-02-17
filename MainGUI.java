@@ -76,6 +76,7 @@ private Scene scene;
             }
             }
         );
+        
 
             
             stage.setScene(scene);
