@@ -45,6 +45,7 @@ private Scene scene;
         arg0.setTitle("4 wits"); 
 
         StackPane layout = new StackPane();
+        Scene scene = new Scene(layout, 1250, 700);
         layout.setBackground(new Background(new BackgroundImage(new Image("brick.jpg"),
             BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
             new BackgroundSize(1750, 800, true, true, true, true))));
@@ -81,7 +82,7 @@ private Scene scene;
         door1.setOnAction( e -> {
             System.out.println("clicked!");
             try {
-                stage.setScene(Scene1.getScene1());
+                stage.setScene(Scene1.getScene1(stage, scene));
             } catch (FileNotFoundException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
@@ -139,9 +140,6 @@ private Scene scene;
 
         // layout2.getChildren().addAll(label1);
 
-
- 
-        Scene scene = new Scene(layout, 1250, 700);
         //Image img = new Image("brick.jpg");
         //ImageView iv3 = new ImageView();
         //iv3.setImage(img);
