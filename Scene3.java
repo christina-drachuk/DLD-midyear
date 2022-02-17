@@ -255,7 +255,7 @@ public class Scene3 {
         correctButton.setStyle("-fx-border-color: #9370DB; -fx-border-width: 5px;");
         hb.getChildren().addAll(correctButton);
         //how to go back to main screen
-        correctButton.setOnAction(e -> stage.setScene(start(stage)));
+        //correctButton.setOnAction(e -> stage.setScene(start(stage)));
 
         return scene6;
     }
