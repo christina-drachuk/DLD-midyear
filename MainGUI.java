@@ -88,7 +88,9 @@ private Scene scene;
             }
             }
         );
-    
+        
+
+            
             stage.setScene(scene);
         
         // Label label1 = new Label("This is the First Scene");
