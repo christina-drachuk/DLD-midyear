@@ -87,7 +87,7 @@ public class Scene1 {
         IntegerProperty userPoints = new SimpleIntegerProperty(0);
         IntegerProperty questionNum = new SimpleIntegerProperty(1);
         
-        InputStream stream = new FileInputStream("images/tringus.png");
+        InputStream stream = new FileInputStream("DLD-midyear/images/Tringusdaddy.png");
         Image image = new Image(stream);
         ImageView iv1 = new ImageView();
         iv1.setImage(image);
