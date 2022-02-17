@@ -56,11 +56,10 @@ private Scene scene;
         StackPane.setAlignment(text1, Pos.TOP_CENTER);
         layout.getChildren().add(text1);
 
-
         
         Button door1 = makeDoors(layout, 250, 400, -400, "Riddles");
         Button door2 = makeDoors(layout, 250, 400, 0, "Trivia");
-        Button door3 = makeDoors(layout, 250, 400, 400, "WARNING DO NOT ENTER");
+        Button door3 = makeDoors(layout, 250, 400, 400, "Memory");
         //Button door4 = makeDoors(layout, 250, 400, 450, "Enter please :)");
         Font font = Font.font("Courier New", FontWeight.BOLD, 16);
 

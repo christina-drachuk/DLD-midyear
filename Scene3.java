@@ -61,7 +61,7 @@ public class Scene3 {
             BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
             new BackgroundSize(1750, 800, true, true, true, true))));
         
-        Text text1 = new Text("\n\t     CORRECT AGAIN!\n\t    Very impressive\n Now, if you can answer this last question\n\tthat will be very impressive\n\n\tWhat color was the fourth door?");
+        Text text1 = new Text("\n\t     CORRECT AGAIN!\n\t    Very impressive\n Now, if you can answer this last question\n\tthat will be very impressive\n\n\tWhat color was the second door?");
         text1.setFont(Font.font ("Courier New", FontWeight.BOLD, 50));
         layout11.setTop(text1);
 
@@ -70,7 +70,7 @@ public class Scene3 {
         hb.setAlignment(Pos.CENTER);
 
         //blue button
-        Button correctButton = new Button("Blue");
+        Button correctButton = new Button("Purple");
         correctButton.setPrefSize(200, 60); 
         Font font = Font.font("Courier New", FontWeight.BOLD, 15);
         correctButton.setFont(font);
@@ -79,7 +79,7 @@ public class Scene3 {
         correctButton.setOnAction(e -> stage.setScene(wrongAnswer1(stage)));
 
         //right button
-        Button wrongButton = new Button("Pink");
+        Button wrongButton = new Button("Blue");
         wrongButton.setPrefSize(200, 60); 
         wrongButton.setFont(font);
         HBox.setMargin(wrongButton, new Insets(70, 70, 70, 70));
@@ -325,7 +325,7 @@ public class Scene3 {
             new BackgroundSize(1300, 700, true, true, true, true))));
 
         
-        Text text1 = new Text("\n\n        So.... you have decided to enter through\n       this door even though I specifically warned\n       you not to. Well, there is no going back now\n       so why not test your worthiness to see if you\n       can pass through and escape this challenge.");
+        Text text1 = new Text("\n\n       So you have chosen a memory test\n well lets not hesitate, why not test your worthiness to see if you\n       can pass through and escape this challenge.");
         text1.setFont(Font.font ("Courier New", FontWeight.BOLD, 35));
         text1.setFill(Color.BLACK);
         StackPane.setAlignment(text1, Pos.TOP_CENTER);

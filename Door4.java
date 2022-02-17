@@ -187,6 +187,7 @@ public class Door4 extends Application {
 
                 Label winLabel = new Label("YOU WIN!");            
                 layout.getChildren().addAll(winLabel);
+
             }
 
             else if(deckNum[1].rank + deckNum[2].rank + card3.rank <= 21){
