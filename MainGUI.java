@@ -58,8 +58,8 @@ private Scene scene;
 
 
         
-        Button door1 = makeDoors(layout, 250, 400, -400, "Scary");
-        Button door2 = makeDoors(layout, 250, 400, 0, "Not scary at all");
+        Button door1 = makeDoors(layout, 250, 400, -400, "Riddles");
+        Button door2 = makeDoors(layout, 250, 400, 0, "Trivia");
         Button door3 = makeDoors(layout, 250, 400, 400, "WARNING DO NOT ENTER");
         //Button door4 = makeDoors(layout, 250, 400, 450, "Enter please :)");
         Font font = Font.font("Courier New", FontWeight.BOLD, 16);
