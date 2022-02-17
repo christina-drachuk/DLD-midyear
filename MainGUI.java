@@ -43,8 +43,10 @@ private Scene scene;
     public void start(Stage arg0) throws Exception {
         stage = arg0;
         arg0.setTitle("4 wits"); 
+        
 
         StackPane layout = new StackPane();
+        Scene scene = new Scene(layout, 1250, 700);
         layout.setBackground(new Background(new BackgroundImage(new Image("brick.jpg"),
             BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
             new BackgroundSize(1750, 800, true, true, true, true))));
@@ -141,7 +143,7 @@ private Scene scene;
 
 
  
-        Scene scene = new Scene(layout, 1250, 700);
+        
         //Image img = new Image("brick.jpg");
         //ImageView iv3 = new ImageView();
         //iv3.setImage(img);
