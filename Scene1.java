@@ -15,8 +15,6 @@ import javafx.scene.image.ImageView;
 import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Arrays;
-// import javafx.scene.layout.ColumnConstraints;
-// import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -28,17 +26,13 @@ public class Scene1 {
         GridPane layout0 = new GridPane();
         GridPane layout1 = new GridPane();
         
-        // RowConstraints rowConstraints = new RowConstraints(100);
-        // layout1.getRowConstraints().add(rowConstraints);
-        // ColumnConstraints colConstraints = new ColumnConstraints(100);
-        // layout1.getColumnConstraints().add(colConstraints);
-        
         Label label1 = new Label("Dungeon of Riddles");
         Label label2 = new Label("In order to pass through his dungeon, you must answer the harrowing riddles of Tringus...");
         Label label3 = new Label("There are 10 riddles; you have 3 tries for each, and you need 7 points to pass. Good luck.");
 
         Label questionLabel = new Label("Riddle:");
         Label successState = new Label();
+        
 
         Button back = new Button("Return to main screen");
         back.setMaxHeight(250);
@@ -56,7 +50,6 @@ public class Scene1 {
         IntegerProperty maxQuestions = new SimpleIntegerProperty(10);
         IntegerProperty userPoints = new SimpleIntegerProperty(0);
         
-        // TODO: formatting
         InputStream stream = new FileInputStream("images/tringus.png");
         Image image = new Image(stream);
         ImageView iv1 = new ImageView();
@@ -83,9 +76,6 @@ public class Scene1 {
         ArrayList<String> answers = new ArrayList<String>(
             Arrays.asList("moon", "mountain", "darkness", "fish", "ground beef", "needle", "footsteps", "human", "river", "stars",
                             "coffin", "penny", "bookkeeper", "charcoal", "corn", "time", "echo", "silence", "ton", "piano", "sponge"));
-
-        // give user 3 tries to figure out the riddle, if they don't get it then they don't get that point
-        // need a certain amount of points to pass the level
         
         layout0.add(label1, 1, 0);
         layout0.add(label2, 1, 2);
@@ -107,10 +97,12 @@ public class Scene1 {
         riddleGuess.setMaxHeight(15);
         layout1.add(riddleGuess, 1, 4);
 
+        layout1.add(successState, 1, 5);
+
         Label userPointsLbl = new Label();
-        layout1.add(userPointsLbl, 1, 5);
+        layout1.add(userPointsLbl, 1, 6);
         
-        if (!(maxQuestions.equals(0))) {
+        if (!(maxQuestions.get() == 0)) {
             int randIndex = (int) (Math.random() * riddles.size());
             currentLabel.setText(riddles.get(randIndex));
             correctAnswer.set(answers.get(randIndex));
@@ -119,21 +111,18 @@ public class Scene1 {
             triesLeft.set(3);
             
             maxQuestions.set(maxQuestions.get() - 1);
-            System.out.println("this is the maxquestions value: " + maxQuestions.getValue().toString());
         }
 
         riddleGuess.setOnAction( e -> {
             var userGuess = riddleGuess.getText();
             riddleGuess.clear();
             userPointsLbl.setText("Points: " + userPoints.getValue().toString());
-
-            System.out.println(correctAnswer);
             String expected = correctAnswer.get();
 
-            if (expected.equals(userGuess)) {
+            if (expected.equals(userGuess.strip().toLowerCase())) {
                 System.out.println("that is so true");
                 userPoints.set(userPoints.get() + 1);
-                currentLabel.setText("That answer is correct. You have been awarded one point.");
+                successState.setText("That answer is correct. You have been awarded one point.");
                 userPointsLbl.setText("Points: " + userPoints.getValue().toString());
                 
                 if (maxQuestions.get() == 0 && userPoints.get() >= 7) {
@@ -145,7 +134,6 @@ public class Scene1 {
                 else if (maxQuestions.get() == 0 && userPoints.get() < 7) {
                     userPointsLbl.setText("Points: " + userPoints.getValue().toString() + "/10");
                     currentLabel.setText("Haha! Tringus got you, you shall not pass! Go back to the entrance...");
-                    // TODO add return to maingui button
                     layout1.getChildren().remove(riddleGuess);
                 }
 
@@ -159,31 +147,34 @@ public class Scene1 {
                     triesLeft.set(3);
                     
                     maxQuestions.set(maxQuestions.get() - 1);
-                    System.out.println("this is the maxquestions value: " + maxQuestions.getValue().toString());
                 }
             }
 
-            else if (!(expected.equals(userGuess))) {
+            else if (!(expected.equals(userGuess.strip().toLowerCase()))) {
                 triesLeft.set(triesLeft.get() - 1);
                 if (maxQuestions.get() == 0 && userPoints.get() >= 7) {
                     currentLabel.setText("Congratulations, you have passed through the dungeon!");
                     userPointsLbl.setText("Points: " + userPoints.getValue().toString() + "/10");
                     layout1.getChildren().remove(riddleGuess);
+                    layout1.getChildren().remove(successState);
                 }
 
                 else if (maxQuestions.get() == 0 && userPoints.get() < 7) {
                     userPointsLbl.setText("Points: " + userPoints.getValue().toString() + "/10");
                     currentLabel.setText("Haha! Tringus got you, you shall not pass! Go back to the entrance...");
-                    // TODO add return to maingui button
                     layout1.getChildren().remove(riddleGuess);
+                    layout1.getChildren().remove(successState);
                     layout1.add(back, 1, 6);
                 }
 
-                if (triesLeft.get() > 0) {
+                if (triesLeft.get() == 1) {
+                    successState.setText("That answer was incorrect! You have " + triesLeft.getValue().toString() + " try left.");  
+                }
+
+                else if (triesLeft.get() > 0) {
                     successState.setText("That answer was incorrect! You have " + triesLeft.getValue().toString() + " tries left.");
                 }
                 else {
-                    // successState.setText("That answer was incorrect! You have " + triesLeft.getValue().toString() + " tries left.");
                     successState.setText("You have no more tries! Time to move on.");
                     if (!(maxQuestions.get() == 0)) {
                         int randIndex = (int) (Math.random() * riddles.size());
@@ -194,7 +185,6 @@ public class Scene1 {
                         triesLeft.set(3);
                         
                         maxQuestions.set(maxQuestions.get() - 1);
-                        System.out.println("this is the maxquestions value: " + maxQuestions.getValue().toString());
                     }
                 }
             }
